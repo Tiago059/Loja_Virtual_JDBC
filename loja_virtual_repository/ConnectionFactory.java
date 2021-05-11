@@ -11,7 +11,7 @@ public class ConnectionFactory {
 	
 	private String url = "jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC";
 	private String user = "root";
-	private String password = "sonichyper";
+	private String password = "root";
 	
 	public DataSource dataSource;
 	
