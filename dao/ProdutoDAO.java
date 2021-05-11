@@ -79,8 +79,6 @@ public class ProdutoDAO {
 	}
 
 	public void mostrarProdutosPelasCategorias() throws SQLException {
-		Categoria ultima = null;
-
 		String sql = "SELECT PRODUTO.id, PRODUTO.nome, descricao, CATEGORIA_ID, CATEGORIA.NOME "
 				   + "FROM PRODUTO "
 				   + "INNER JOIN CATEGORIA "
@@ -92,12 +90,6 @@ public class ProdutoDAO {
 
 		ResultSet rst = stm.getResultSet();
 		while (rst.next()) {
-			System.out.println(rst.getString("CATEGORIA.NOME"));
-			if (ultima == null || ultima.getNome().equals(rst.getString("CATEGORIA.NOME"))) {
-				Categoria c = new Categoria(rst.getInt("CATEGORIA_ID"), rst.getString("CATEGORIA.NOME"));
-				ultima = c;
-				
-			}
 			System.out.println("id: " + rst.getInt("ID") + "\tnome: " + rst.getString("NOME") + "\tdescricao: "
 					+ rst.getString("DESCRICAO") + "\tcategoria_id: " + rst.getInt("CATEGORIA_ID"));
 			
